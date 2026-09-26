@@ -1,0 +1,296 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Wishes 💖</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #6a11cb,
+                #2575fc,
+                #ec4899
+            );
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: fixed;
+            bottom: -50px;
+            font-size: 25px;
+            animation: float 8s linear infinite;
+            opacity: 0.8;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-duration: 7s;
+        }
+
+        .heart:nth-child(2) {
+            left: 25%;
+            animation-duration: 10s;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 50%;
+            animation-duration: 8s;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(4) {
+            left: 75%;
+            animation-duration: 11s;
+            animation-delay: 3s;
+        }
+
+        .heart:nth-child(5) {
+            left: 90%;
+            animation-duration: 9s;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main card */
+        .card {
+            width: 90%;
+            max-width: 700px;
+            padding: 50px 40px;
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+
+            backdrop-filter: blur(15px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+
+            color: white;
+            animation: showCard 1.2s ease;
+        }
+
+        @keyframes showCard {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .emoji {
+            font-size: 45px;
+            animation: sparkle 2s infinite alternate;
+        }
+
+        @keyframes sparkle {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        h1 {
+            margin: 20px 0;
+            font-size: clamp(40px, 8vw, 65px);
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .subtitle {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .message {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #ffe4f0;
+        }
+
+        /* Button */
+        button {
+            margin-top: 30px;
+            padding: 15px 30px;
+
+            border: none;
+            border-radius: 50px;
+
+            background: linear-gradient(
+                135deg,
+                #ffffff,
+                #ffd6ec
+            );
+
+            color: #7c2d92;
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+        }
+
+        /* Hidden message */
+        #extraMessage {
+            display: none;
+            margin-top: 25px;
+            font-size: 18px;
+            font-weight: bold;
+
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            .card {
+                padding: 40px 20px;
+            }
+
+            .message {
+                font-size: 16px;
+            }
+
+            .subtitle {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating decorations -->
+    <div class="heart">💖</div>
+    <div class="heart">✨</div>
+    <div class="heart">💜</div>
+    <div class="heart">🌸</div>
+    <div class="heart">⭐</div>
+
+    <!-- Main content -->
+    <div class="card">
+
+        <div class="emoji">✨ 💖 ✨</div>
+
+        <h1>
+            Best Wishes,<br>
+            My Dear Friend! 🌸
+        </h1>
+
+        <p class="subtitle">
+            A special message for an amazing person 💫
+        </p>
+
+        <p class="message">
+            May your life always be filled with
+            <span class="highlight">
+                happiness, success, laughter, and endless joy.
+            </span>
+
+            <br>
+
+            May every new day bring you beautiful opportunities,
+            wonderful memories, and countless reasons to smile. 🌷
+
+            <br><br>
+
+            Keep believing in yourself,
+            keep chasing your dreams,
+            and never stop shining.
+
+            <br>
+
+            <span class="highlight">
+                You deserve all the happiness in the world! 💕
+            </span>
+        </p>
+
+        <button onclick="showWish()">
+            Open One More Wish 💌
+        </button>
+
+        <p id="extraMessage">
+            🌟 May all your dreams come true,
+            and may your journey be filled with
+            beautiful moments, success and unforgettable memories.
+            Keep smiling always! 💖
+        </p>
+
+    </div>
+
+    <script>
+        function showWish() {
+
+            const message = document.getElementById("extraMessage");
+
+            if (message.style.display === "block") {
+                message.style.display = "none";
+            } else {
+                message.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
+```
